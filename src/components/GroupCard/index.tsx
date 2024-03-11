@@ -21,16 +21,16 @@ const GroupCard: React.FC<Group> = ({ closed, members_count, name, avatar_color,
         {avatar_color && <GroupAvatar $color={avatar_color} />}
         <h2>{name}</h2>
         <p>
-          {closed && <ClosedImage></ClosedImage>}
+          {closed && <ClosedImage/>}
         </p>
       </GroupContent>
       <GroupContent>
         <p>
            {members_count} участников
         </p>
-        <button onClick={handleShowFriends}>
-          {friends?.length || 0} друзей
-        </button>
+        {friends && <button onClick={handleShowFriends}>
+          {friends?.length} друзей
+        </button>}
       </GroupContent>
       {showFriends && friends && <FriendsList arr={friends} />}
     </GroupContainer>
