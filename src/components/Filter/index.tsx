@@ -1,4 +1,4 @@
-import React, { ChangeEvent, Dispatch, FC, SetStateAction, useState } from 'react'
+import { ChangeEvent, Dispatch, FC, SetStateAction, useState } from 'react';
 import { avatarVariables, friendsVariables, privateVariables } from './data';
 
 interface IFilter {
@@ -11,7 +11,7 @@ const filterVariables = {
   color: avatarVariables,
   private: privateVariables,
   friends: friendsVariables,
-}
+};
 const Filter: FC<IFilter> = ({ type, filter, filterChange }) => {
   const [selectedValue, setSelectedValue] = useState<string>(filter);
 
@@ -22,11 +22,14 @@ const Filter: FC<IFilter> = ({ type, filter, filterChange }) => {
 
   return (
     <select name={type} id={type} value={selectedValue} onChange={handleChange}>
-      {filterVariables[type] && filterVariables[type].map((item) => (
-         <option value={item.value} key={item.name}>{item.name}</option>
-      ))}
+      {filterVariables[type] &&
+        filterVariables[type].map((item) => (
+          <option value={item.value} key={item.name}>
+            {item.name}
+          </option>
+        ))}
     </select>
-  )
-}
+  );
+};
 
-export default Filter
+export default Filter;

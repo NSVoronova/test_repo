@@ -72,7 +72,7 @@ const App: React.FC = () => {
           ))}
         </div>
       ) : (
-        <p>Loading...</p>
+        <p style={{ marginTop: '30px' }}>Loading...</p>
       )}
     </div>
   );

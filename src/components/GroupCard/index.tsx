@@ -1,14 +1,18 @@
-import { useState } from "react";
-import { GroupAvatar, GroupContainer, GroupContent } from "../../styles/style";
+import { useState } from 'react';
+import { GroupAvatar, GroupContainer, GroupContent } from '../../styles/style';
 import img from '../../assets/icons8-замок-96.png';
-import FriendsList from "../FriendsList";
+import FriendsList from '../FriendsList';
 
 const ClosedImage = () => {
-  return (
-    <img src={img} style={{width: '20px', marginTop: '7px'}}/>
-  )
-}
-const GroupCard: React.FC<Group> = ({ closed, members_count, name, avatar_color, friends }) => {
+  return <img src={img} style={{ width: '20px', marginTop: '7px' }} />;
+};
+const GroupCard: React.FC<Group> = ({
+  closed,
+  members_count,
+  name,
+  avatar_color,
+  friends,
+}) => {
   const [showFriends, setShowFriends] = useState(false);
 
   const handleShowFriends = () => {
@@ -20,17 +24,13 @@ const GroupCard: React.FC<Group> = ({ closed, members_count, name, avatar_color,
       <GroupContent>
         {avatar_color && <GroupAvatar $color={avatar_color} />}
         <h2>{name}</h2>
-        <p>
-          {closed && <ClosedImage/>}
-        </p>
+        <p>{closed && <ClosedImage />}</p>
       </GroupContent>
       <GroupContent>
-        <p>
-           {members_count} участников
-        </p>
-        {friends && <button onClick={handleShowFriends}>
-          {friends?.length} друзей
-        </button>}
+        <p>{members_count} участников</p>
+        {friends && (
+          <button onClick={handleShowFriends}>{friends?.length} друзей</button>
+        )}
       </GroupContent>
       {showFriends && friends && <FriendsList arr={friends} />}
     </GroupContainer>

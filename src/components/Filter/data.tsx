@@ -61,4 +61,4 @@ export const friendsVariables = [
     name: 'Есть друзья в группе',
     value: 'friends',
   },
-]
+];
